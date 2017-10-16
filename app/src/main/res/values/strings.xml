@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Project 3</string>
+    <string name="question_great_barrier_reef">The Great Barrier Reef is the world’s largest living
+        structure. Playing host to over 1,500 species of fish and 900 islands, this world wonder is thought to be:</string>
+    <string name="question_great_barrier_reef_choice_1">500,000 years old</string>
+    <string name="question_great_barrier_reef_choice_2">5,000,000 years old</string>
+    <string name="question_great_barrier_reef_choice_3">20,000,000 years old</string>
 </resources>
