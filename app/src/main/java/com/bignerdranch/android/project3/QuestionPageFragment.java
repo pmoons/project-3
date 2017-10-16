@@ -39,12 +39,19 @@ public class QuestionPageFragment extends Fragment {
         mQuestionTextView.setText(getString(mQuestion.getQuestionTextResId()));
         mImageView.setImageResource(mQuestion.getBackgroundImageResId());
 
+        Integer radioButtonCounter = 0;
+
         for (Map.Entry<Integer, Boolean> choice : mQuestion.getChoices().entrySet()) {
             String choiceText = getString(choice.getKey());
             Boolean isAnswer = choice.getValue();
-            RadioButton choiceRadioBtn = new RadioButton(getContext());
+            RadioButton choiceRadioBtn = getLayoutInflater()
+                    .inflate(R.layout.radio_button_choice_view, null)
+                    .findViewById(R.id.radio_button_choice);
 
             choiceRadioBtn.setText(choiceText);
+            choiceRadioBtn.setId(radioButtonCounter); // Unique ID needed for RadioGroup
+            radioButtonCounter++;
+
             mRadioGroup.addView(choiceRadioBtn);
         }
 
