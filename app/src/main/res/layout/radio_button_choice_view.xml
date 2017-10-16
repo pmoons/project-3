@@ -8,4 +8,5 @@
    android:shadowDx="1.2"
    android:shadowDy="1.2"
    android:shadowRadius="2"
+   android:buttonTint="#FFFFFF"
    android:textSize="24sp" />

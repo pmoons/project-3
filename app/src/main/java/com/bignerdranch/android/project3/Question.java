@@ -10,6 +10,7 @@ public class Question implements Parcelable {
 
     private int mQuestionTextResId;
     private int mBackgroundImageResId;
+    private boolean mIsCorrect = false;
     private HashMap<Integer, Boolean> mChoices;
 
     //
@@ -51,10 +52,6 @@ public class Question implements Parcelable {
         return mQuestionTextResId;
     }
 
-    public void setQuestionTextResId(int questionTextResId) {
-        mQuestionTextResId = questionTextResId;
-    }
-
     public int getBackgroundImageResId() {
         return mBackgroundImageResId;
     }
@@ -63,13 +60,13 @@ public class Question implements Parcelable {
         return mChoices;
     }
 
-//    public boolean isAnswerTrue() {
-//        return mAnswerTrue;
-//    }
+    public void setAnswer(boolean isCorrect) {
+        mIsCorrect = isCorrect;
+    }
 
-//    public void setAnswerTrue(boolean answerTrue) {
-//        mAnswerTrue = answerTrue;
-//    }
+    public boolean isCorrect() {
+        return mIsCorrect;
+    }
 
     public Question(int questionTextResId, int backgroundImageResId, HashMap<Integer, Boolean> choices) {
         mQuestionTextResId = questionTextResId;

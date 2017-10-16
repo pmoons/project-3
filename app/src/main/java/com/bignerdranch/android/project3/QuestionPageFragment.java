@@ -43,13 +43,19 @@ public class QuestionPageFragment extends Fragment {
 
         for (Map.Entry<Integer, Boolean> choice : mQuestion.getChoices().entrySet()) {
             String choiceText = getString(choice.getKey());
-            Boolean isAnswer = choice.getValue();
+            final Boolean choiceValue = choice.getValue();
             RadioButton choiceRadioBtn = getLayoutInflater()
                     .inflate(R.layout.radio_button_choice_view, null)
                     .findViewById(R.id.radio_button_choice);
 
             choiceRadioBtn.setText(choiceText);
             choiceRadioBtn.setId(radioButtonCounter); // Unique ID needed for RadioGroup
+            choiceRadioBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mQuestion.setAnswer(choiceValue);
+                }
+            });
             radioButtonCounter++;
 
             mRadioGroup.addView(choiceRadioBtn);
