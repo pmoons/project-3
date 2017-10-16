@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageButton;
 
 import java.util.HashMap;
 
@@ -44,7 +46,44 @@ public class QuestionActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+        mNavLeftImageBtn = findViewById(R.id.left_nav);
+        mNavRightImageBtn = findViewById(R.id.right_nav);
         mPager = findViewById(R.id.pager);
+
+        mNavLeftImageBtn.setVisibility(View.GONE); // hide left nav button for first question
+        mNavLeftImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPager.setCurrentItem(mPager.getCurrentItem() - 1, true);
+            }
+        });
+
+        mNavRightImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPager.setCurrentItem(mPager.getCurrentItem() + 1, true);
+            }
+        });
+
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    mNavLeftImageBtn.setVisibility(View.GONE);
+                } else if (position == mQuestionBank.length - 1) {
+                    mNavRightImageBtn.setVisibility(View.GONE);
+                } else {
+                    mNavLeftImageBtn.setVisibility(View.VISIBLE);
+                    mNavRightImageBtn.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
         mPagerAdapter = new QuestionPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
     }
