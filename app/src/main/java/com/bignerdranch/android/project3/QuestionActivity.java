@@ -14,13 +14,29 @@ public class QuestionActivity extends FragmentActivity {
 
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private ImageButton mNavLeftImageBtn;
+    private ImageButton mNavRightImageBtn;
 
     private Question[] mQuestionBank = new Question[] {
-        new Question(R.string.question_great_barrier_reef, new HashMap<Integer, Boolean>() {{
-            put(R.string.question_great_barrier_reef_choice_1, false);
-            put(R.string.question_great_barrier_reef_choice_2, false);
-            put(R.string.question_great_barrier_reef_choice_3, true);
+        new Question(R.string.question_great_barrier_reef, R.drawable.great_barrier_reef,
+            new HashMap<Integer, Boolean>() {{
+                put(R.string.question_great_barrier_reef_choice_1, false);
+                put(R.string.question_great_barrier_reef_choice_2, false);
+                put(R.string.question_great_barrier_reef_choice_3, true);
+            }}
+        ),
+        new Question(R.string.question_space, R.drawable.space, new HashMap<Integer, Boolean>() {{
+            put(R.string.question_space_choice_1, false);
+            put(R.string.question_space_choice_2, true);
+            put(R.string.question_space_choice_3, false);
         }}),
+        new Question(R.string.question_rainforest, R.drawable.rainforest,
+            new HashMap<Integer, Boolean>() {{
+                put(R.string.question_rainforest_choice_1, false);
+                put(R.string.question_rainforest_choice_2, false);
+                put(R.string.question_rainforest_choice_3, false);
+            }}
+        )
     };
 
     @Override

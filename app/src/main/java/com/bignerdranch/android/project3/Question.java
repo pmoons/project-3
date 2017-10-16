@@ -9,6 +9,7 @@ public class Question implements Parcelable {
     public static final String QUESTION_KEY = "question";
 
     private int mQuestionTextResId;
+    private int mBackgroundImageResId;
     private HashMap<Integer, Boolean> mChoices;
 
     //
@@ -23,6 +24,7 @@ public class Question implements Parcelable {
     @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mQuestionTextResId);
+        out.writeInt(mBackgroundImageResId);
         out.writeValue(mChoices);
     }
 
@@ -30,8 +32,9 @@ public class Question implements Parcelable {
         @Override
         public Question createFromParcel(Parcel in) {
             Integer questionTextResId = in.readInt();
+            Integer backgroundImageResId = in.readInt();
             HashMap<Integer, Boolean> choices = (HashMap) in.readValue(HashMap.class.getClassLoader());
-            return new Question(questionTextResId, choices);
+            return new Question(questionTextResId, backgroundImageResId, choices);
         }
 
         @Override
@@ -52,6 +55,10 @@ public class Question implements Parcelable {
         mQuestionTextResId = questionTextResId;
     }
 
+    public int getBackgroundImageResId() {
+        return mBackgroundImageResId;
+    }
+
     public HashMap<Integer, Boolean> getChoices() {
         return mChoices;
     }
@@ -64,8 +71,9 @@ public class Question implements Parcelable {
 //        mAnswerTrue = answerTrue;
 //    }
 
-    public Question(int questionTextResId, HashMap<Integer, Boolean> choices) {
+    public Question(int questionTextResId, int backgroundImageResId, HashMap<Integer, Boolean> choices) {
         mQuestionTextResId = questionTextResId;
+        mBackgroundImageResId = backgroundImageResId;
         mChoices = choices;
     }
 }

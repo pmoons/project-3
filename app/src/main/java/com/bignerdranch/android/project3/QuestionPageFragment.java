@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ public class QuestionPageFragment extends Fragment {
 
     private Question mQuestion;
     private TextView mQuestionTextView;
+    private ImageView mImageView;
     private RadioGroup mRadioGroup;
 
     @Override
@@ -31,9 +33,11 @@ public class QuestionPageFragment extends Fragment {
         ViewGroup view = (ViewGroup) inflater.inflate(
                 R.layout.fragment_question_page, container, false);
         mQuestionTextView = view.findViewById(R.id.question_text_view);
+        mImageView = view.findViewById(R.id.question_background_image_view);
         mRadioGroup = view.findViewById(R.id.question_radio_group);
 
         mQuestionTextView.setText(getString(mQuestion.getQuestionTextResId()));
+        mImageView.setImageResource(mQuestion.getBackgroundImageResId());
 
         for (Map.Entry<Integer, Boolean> choice : mQuestion.getChoices().entrySet()) {
             String choiceText = getString(choice.getKey());

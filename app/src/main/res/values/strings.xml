@@ -5,4 +5,16 @@
     <string name="question_great_barrier_reef_choice_1">500,000 years old</string>
     <string name="question_great_barrier_reef_choice_2">5,000,000 years old</string>
     <string name="question_great_barrier_reef_choice_3">20,000,000 years old</string>
+    <string name="question_space">The beauty and sheer infiniteness of space has inspired has inspired man since
+        the dawn of civilization.  New units of measure have been created to help cope with the vastness space provides.
+        Which of the following units of measure is the largest?</string>
+    <string name="question_space_choice_1">A light year</string>
+    <string name="question_space_choice_2">A parsec</string>
+    <string name="question_space_choice_3">An Astronomical Unit (AU)</string>
+    <string name="question_rainforest">The rainforests of the world are the most bio-diverse areas on the planet.
+        Each one contains unique and beautiful scenes, species, and fauna.  Unfortunately, approximately __
+        are cut down every single  day.</string>
+    <string name="question_rainforest_choice_1">80,000 football fields</string>
+    <string name="question_rainforest_choice_2">2 airports the size of JFK</string>
+    <string name="question_rainforest_choice_3">50 square miles</string>
 </resources>
